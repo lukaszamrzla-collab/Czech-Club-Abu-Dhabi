@@ -116,7 +116,8 @@
             <!-- Obdélníkové Logo -->
 <div class="flex shrink-0 items-center">
   <a href="#" class="flex items-center focus:outline-none">
-    <img src="logo.png" alt="Czech Club Abu Dhabi" class="h-20 md:h-24 w-auto object-contain transition-opacity hover:opacity-90">
+    <!-- Increased size using explicit width (w-64 to w-80) -->
+    <img src="logo.png" alt="Czech Club Abu Dhabi" class="w-64 md:w-80 h-auto object-contain transition-opacity hover:opacity-90">
   </a>
 </div>
             
@@ -572,49 +573,56 @@
 </div>
 
 <!-- Footer -->
-<footer class="bg-[#071f3a] text-white py-16 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-        
-        <div class="md:col-span-2">
-            <!-- Čtvercové logo v patičce -->
-            <div class="mb-6 flex items-center">
-  <a href="#" class="inline-block focus:outline-none">
-    <img src="logo.png" alt="Czech Club Abu Dhabi" class="h-16 md:h-20 w-auto object-contain transition-opacity hover:opacity-90">
-  </a>
-</div>
-            <h3 class="font-michroma text-lg font-bold mb-3">Czech Club Abu Dhabi</h3>
-            <p class="text-xs text-white/60 leading-relaxed max-w-sm font-light">
-                <span class="lang-cz">Oficiální nezisková platforma pro podporu české komunity, uchovávání tradic a rozvoj českých vztahů v SAE.</span>
-                <span class="lang-en">Official non-profit community platform supporting Czech expats, preserving traditions, and fostering connections in the UAE.</span>
-            </p>
+<footer class="bg-white relative pt-16 pb-8 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
+      
+      <!-- Brand & About -->
+      <div class="md:col-span-5">
+        <div class="mb-6 flex items-center">
+          <a href="#" class="inline-block focus:outline-none">
+            <!-- Large width for the footer logo -->
+            <img src="logo2.png" alt="Czech Club Abu Dhabi" class="w-64 md:w-80 h-auto object-contain transition-opacity hover:opacity-90">
+          </a>
         </div>
+        <h3 class="font-michroma text-2xl mb-4 text-[#11457e]">Czech Club Abu Dhabi</h3>
+        <p class="text-gray-600 leading-relaxed max-w-sm">
+          Oficiální nezisková platforma pro podporu české komunity, uchovávání tradic a rozvoj českých vztahů v SAE.
+        </p>
+      </div>
 
-        <div>
-            <h4 class="font-michroma text-xs font-bold text-[#dcb991] uppercase tracking-wider mb-4">
-                <span class="lang-cz">Rychlé odkazy</span>
-                <span class="lang-en">Quick Links</span>
-            </h4>
-            <ul class="space-y-2 text-xs text-white/70 font-light">
-                <li><a href="#about" class="hover:text-white transition-colors">O nás / About</a></li>
-                <li><a href="#events" class="hover:text-white transition-colors">Kalendář akcí / Events</a></li>
-                <li><a href="#register" class="hover:text-white transition-colors">Členství / Join</a></li>
-            </ul>
-        </div>
+      <!-- Links -->
+      <div class="md:col-span-3">
+        <h4 class="font-michroma text-sm text-[#11457e] tracking-wider mb-6">RYCHLÉ ODKAZY</h4>
+        <ul class="space-y-4">
+          <li><a href="#" class="text-gray-600 hover:text-[#d7141a] transition-colors">O nás / About</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-[#d7141a] transition-colors">Kalendář akcí / Events</a></li>
+          <li><a href="#" class="text-gray-600 hover:text-[#d7141a] transition-colors">Členství / Join</a></li>
+        </ul>
+      </div>
 
-        <div>
-            <h4 class="font-michroma text-xs font-bold text-[#dcb991] uppercase tracking-wider mb-4">
-                <span class="lang-cz">Kontakt</span>
-                <span class="lang-en">Contact</span>
-            </h4>
-            <p class="text-xs text-white/70 font-light mb-2">Abu Dhabi, United Arab Emirates</p>
-            <p class="text-xs text-white/70 font-light">info@czechclub.ae</p>
-        </div>
-
+      <!-- Contact -->
+      <div class="md:col-span-4">
+        <h4 class="font-michroma text-sm text-[#11457e] tracking-wider mb-6">KONTAKT</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <span class="text-gray-600">Abu Dhabi, United Arab Emirates</span>
+          </li>
+          <li class="flex items-center">
+            <a href="mailto:info@czechclub.ae" class="text-gray-600 hover:text-[#d7141a] transition-colors">info@czechclub.ae</a>
+          </li>
+        </ul>
+      </div>
+      
     </div>
 
-    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-center text-[10px] text-white/40 font-michroma uppercase">
-        © 2026 Czech Club Abu Dhabi. All rights reserved.
+    <!-- Copyright -->
+    <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-500 font-michroma text-center md:text-left">
+        &copy; 2026 CZECH CLUB ABU DHABI. ALL RIGHTS RESERVED.
+      </p>
     </div>
+  </div>
 </footer>
 
 <script>
