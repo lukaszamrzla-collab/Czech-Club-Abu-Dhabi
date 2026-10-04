@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#11457e">
+    <title>Czech Club Abu Dhabi | Oficiální komunita v SAE</title>
+    <meta name="description" content="Oficiální Český klub v Abú Dhabí a SAE. Přidejte se k naší komunitě, zaregistrujte se a zúčastněte se našich nadcházejících událostí.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Michroma & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base typography setup */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Michroma Font Application */
+        .font-michroma { 
+            font-family: 'Michroma', sans-serif; 
+            letter-spacing: 0.05em;
+        }
+
+        /* Custom Selection Theme */
+        ::selection { background-color: #d7141a; color: #ffffff; }
+        
+        /* Language Toggle Logic */
+        body.lang-en .lang-cz { display: none !important; }
+        body.lang-cz .lang-en { display: none !important; }
+
+        /* Premium Animations */
+        .fade-in-up { animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Moving Sand Dunes Animation */
+        .dune-wrapper {
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .dune-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            background-position: bottom left;
+            transform: translate3d(0, 0, 0);
+        }
+        .dune-layer-1 {
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,150 C200,100 400,200 600,150 C800,100 1000,200 1200,150 L1200,200 L0,200 Z" fill="%23a88760" opacity="0.3"/></svg>');
+            background-size: 50% 100%;
+            animation: moveDunes 45s linear infinite;
+        }
+        .dune-layer-2 {
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,170 C300,120 400,220 700,160 C900,120 1100,200 1200,170 L1200,200 L0,200 Z" fill="%23c4a277" opacity="0.6"/></svg>');
+            background-size: 50% 100%;
+            animation: moveDunes 35s linear infinite reverse;
+        }
+        .dune-layer-3 {
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,180 C250,150 450,200 650,170 C850,140 1050,190 1200,180 L1200,200 L0,200 Z" fill="%23faf8f5"/></svg>');
+            background-size: 50% 100%;
+            animation: moveDunes 25s linear infinite;
+        }
+
+        @keyframes moveDunes {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hover effects */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(17, 69, 126, 0.12);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #dcb991 0%, #a88760 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="lang-cz bg-[#faf8f5] text-[#11457e] min-h-screen overflow-x-hidden">
+
+<!-- Navigation -->
+<nav class="fixed w-full top-0 z-50 bg-[#ffffff] border-b border-[#11457e]/10 shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex justify-between items-center h-24 gap-4">
+            
+            <!-- Obdélníkové Logo -->
+            <a href="#home" class="flex items-center gap-4 group">
+                <div class="w-48 h-12 md:w-64 md:h-16 bg-white rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center p-2 relative border border-[#11457e]/10 shadow-xs">
+                    <img src="logo.png" alt="Czech Club Abu Dhabi" class="w-full h-full object-contain relative z-10" onerror="this.onerror=null; this.src='https://placehold.co/600x150/ffffff/11457e?text=CZECH+CLUB';">
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 font-michroma text-[10px] tracking-[0.2em] uppercase font-semibold">
+                <a href="#about" class="text-[#11457e] hover:text-[#d7141a] transition-colors relative group">
+                    <span class="lang-cz">O nás</span>
+                    <span class="lang-en">About Us</span>
+                    <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#d7141a] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#events" class="text-[#11457e] hover:text-[#d7141a] transition-colors relative group">
+                    <span class="lang-cz">Akce</span>
+                    <span class="lang-en">Events</span>
+                    <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#d7141a] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+
+                <a href="#register" class="bg-[#11457e] text-white px-7 py-3 rounded-full hover:bg-[#d7141a] transition-all hover:shadow-lg hover:shadow-[#d7141a]/20">
+                    <span class="lang-cz">Přidat se</span>
+                    <span class="lang-en">Join Club</span>
+                </a>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-[#11457e]/5 rounded-full p-1 cursor-pointer ml-2 border border-[#11457e]/10" onclick="toggleLanguage()">
+                    <div id="lang-cz-btn" class="px-3 py-1.5 rounded-full bg-[#11457e] text-white transition-all">CZ</div>
+                    <div id="lang-en-btn" class="px-3 py-1.5 rounded-full text-[#11457e] hover:text-[#d7141a] transition-all">EN</div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle & Language -->
+            <div class="flex md:hidden items-center gap-3">
+                <button onclick="toggleLanguage()" class="font-michroma text-[10px] font-bold text-[#11457e] bg-[#11457e]/10 px-3 py-1.5 rounded-full">
+                    <span class="lang-cz">EN</span>
+                    <span class="lang-en">CZ</span>
+                </button>
+                <button class="text-[#11457e] p-2" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#ffffff] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <button class="absolute top-8 right-8 text-[#11457e] p-2" onclick="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="flex flex-col items-center gap-8 font-michroma text-lg tracking-[0.2em] uppercase font-bold">
+        <a href="#about" onclick="toggleMobileMenu()" class="text-[#11457e] hover:text-[#d7141a] transition-colors">
+            <span class="lang-cz">O nás</span>
+            <span class="lang-en">About Us</span>
+        </a>
+        <a href="#events" onclick="toggleMobileMenu()" class="text-[#11457e] hover:text-[#d7141a] transition-colors">
+            <span class="lang-cz">Akce</span>
+            <span class="lang-en">Events</span>
+        </a>
+        <a href="#register" onclick="toggleMobileMenu()" class="text-[#d7141a]">
+            <span class="lang-cz">Přidat se k nám</span>
+            <span class="lang-en">Join The Club</span>
+        </a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="relative w-full pt-36 pb-44 md:pt-48 md:pb-60 bg-[#0a2c52] overflow-hidden">
+    <!-- Subtle Background Glows -->
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d7141a] rounded-full mix-blend-screen filter blur-[180px] opacity-15"></div>
+    <div class="absolute top-1/2 left-0 w-[450px] h-[450px] bg-[#dcb991] rounded-full mix-blend-screen filter blur-[150px] opacity-15 transform -translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-20 text-center opacity-0 fade-in-up">
+        
+        <div class="inline-flex items-center gap-3 mb-8 bg-white/5 backdrop-blur-sm px-5 py-2.5 rounded-full border border-white/10 shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#d7141a] animate-pulse"></span>
+            <span class="font-michroma text-white tracking-[0.25em] uppercase text-[9px] md:text-[10px] font-bold">
+                <span class="lang-cz">Oficiální komunita v SAE</span>
+                <span class="lang-en">Official Community in UAE</span>
+            </span>
+        </div>
+        
+        <h1 class="font-michroma text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-snug tracking-wide max-w-4xl mx-auto">
+            <span class="lang-cz">Spojujeme českou <br class="hidden md:block"><span class="text-gradient">komunitu</span> v Abú Dhabí</span>
+            <span class="lang-en">Connecting the Czech <br class="hidden md:block"><span class="text-gradient">Community</span> in Abu Dhabi</span>
+        </h1>
+        
+        <p class="text-base md:text-lg text-white/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+            <span class="lang-cz">Exkluzivní místo pro setkávání, sdílení zkušeností a oslavu našich tradic. Přinášíme kousek domova do srdce Spojených arabských emirátů.</span>
+            <span class="lang-en">An exclusive hub to gather, share experiences, and celebrate our traditions. Bringing a piece of home to the heart of the United Arab Emirates.</span>
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center gap-5 justify-center font-michroma">
+            <a href="#register" class="bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] px-8 py-4 rounded-full tracking-widest uppercase text-[10px] font-bold hover:shadow-[0_0_20px_rgba(220,185,145,0.4)] transition-all w-full sm:w-auto text-center transform hover:-translate-y-1">
+                <span class="lang-cz">Stát se členem</span>
+                <span class="lang-en">Become a Member</span>
+            </a>
+            <a href="#events" class="bg-transparent border border-white/30 text-white px-8 py-4 rounded-full tracking-widest uppercase text-[10px] hover:bg-white/10 transition-all w-full sm:w-auto text-center font-bold transform hover:-translate-y-1 backdrop-blur-sm">
+                <span class="lang-cz">Prozkoumat akce</span>
+                <span class="lang-en">Explore Events</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Moving Sand Dunes -->
+    <div class="dune-wrapper">
+        <div class="dune-layer dune-layer-1"></div>
+        <div class="dune-layer dune-layer-2"></div>
+        <div class="dune-layer dune-layer-3"></div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 md:py-32 bg-[#faf8f5] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+            
+            <!-- Left Text Content -->
+            <div class="w-full lg:w-1/2 opacity-0 fade-in-up delay-100">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-px w-12 bg-[#d7141a]"></div>
+                    <span class="font-michroma text-[#d7141a] tracking-[0.25em] uppercase text-[10px] font-bold">
+                        <span class="lang-cz">Náš příběh</span>
+                        <span class="lang-en">Our Story</span>
+                    </span>
+                </div>
+                
+                <h2 class="font-michroma text-2xl md:text-4xl text-[#11457e] mb-6 leading-tight">
+                    <span class="lang-cz">Domov daleko od domova pro všechny Čechy</span>
+                    <span class="lang-en">A home away from home for all Czechs</span>
+                </h2>
+                
+                <p class="text-[#11457e]/80 text-base leading-relaxed mb-6 font-light">
+                    <span class="lang-cz">Czech Club Abu Dhabi vznikl s cílem sdružovat české občany, rodiny a příznivce české kultury žijící v SAE. Vytváříme prostor pro networking, kulturní akce, oslavu tradičních svátků i pomoc při zapojení do života v emirátech.</span>
+                    <span class="lang-en">Czech Club Abu Dhabi was established to bring together Czech citizens, families, and friends of Czech culture living in the UAE. We create space for networking, cultural events, traditional celebrations, and support for expat life.</span>
+                </p>
+
+                <p class="text-[#11457e]/80 text-base leading-relaxed mb-8 font-light">
+                    <span class="lang-cz">Naše komunita staví na přátelství, vzájemné podpoře a uchovávání našich tradic i tisíce kilometrů od rodné země.</span>
+                    <span class="lang-en">Our community is built on friendship, mutual support, and preserving our traditions thousands of kilometers away from home.</span>
+                </p>
+
+                <div class="grid grid-cols-2 gap-6 pt-4 border-t border-[#11457e]/10">
+                    <div>
+                        <div class="font-michroma text-3xl font-bold text-[#d7141a] mb-1">500+</div>
+                        <div class="text-xs uppercase tracking-wider text-[#11457e]/70 font-michroma">
+                            <span class="lang-cz">Aktivních členů</span>
+                            <span class="lang-en">Active Members</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-michroma text-3xl font-bold text-[#11457e] mb-1">20+</div>
+                        <div class="text-xs uppercase tracking-wider text-[#11457e]/70 font-michroma">
+                            <span class="lang-cz">Akcí ročně</span>
+                            <span class="lang-en">Events Per Year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Feature Cards -->
+            <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 opacity-0 fade-in-up delay-200">
+                
+                <div class="bg-white p-8 rounded-3xl border border-[#11457e]/10 shadow-sm premium-card">
+                    <div class="w-12 h-12 rounded-2xl bg-[#11457e]/5 text-[#11457e] flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="font-michroma text-sm text-[#11457e] mb-3 font-bold">
+                        <span class="lang-cz">Komunitní setkání</span>
+                        <span class="lang-en">Community Gatherings</span>
+                    </h3>
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light">
+                        <span class="lang-cz">Pravidelná neformální i společenská setkání krajánků a rodin v Abú Dhabí.</span>
+                        <span class="lang-en">Regular casual and social meetups for Czech expats and families in Abu Dhabi.</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-[#11457e]/10 shadow-sm premium-card">
+                    <div class="w-12 h-12 rounded-2xl bg-[#d7141a]/10 text-[#d7141a] flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3 class="font-michroma text-sm text-[#11457e] mb-3 font-bold">
+                        <span class="lang-cz">Kulturní akce</span>
+                        <span class="lang-en">Cultural Events</span>
+                    </h3>
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light">
+                        <span class="lang-cz">Oslavy českých svátků, Mikulášská, Velikonoce a tradiční kulturní večery.</span>
+                        <span class="lang-en">Celebrating Czech holidays, St. Nicholas, Easter, and traditional cultural evenings.</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-[#11457e]/10 shadow-sm premium-card">
+                    <div class="w-12 h-12 rounded-2xl bg-[#a88760]/10 text-[#a88760] flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    </div>
+                    <h3 class="font-michroma text-sm text-[#11457e] mb-3 font-bold">
+                        <span class="lang-cz">Business Network</span>
+                        <span class="lang-en">Business Network</span>
+                    </h3>
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light">
+                        <span class="lang-cz">Propojování českých profesionálů, podnikatelů a firem působících v SAE.</span>
+                        <span class="lang-en">Connecting Czech professionals, entrepreneurs, and businesses active in the UAE.</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-[#11457e]/10 shadow-sm premium-card">
+                    <div class="w-12 h-12 rounded-2xl bg-[#11457e]/5 text-[#11457e] flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="font-michroma text-sm text-[#11457e] mb-3 font-bold">
+                        <span class="lang-cz">Podpora krajánků</span>
+                        <span class="lang-en">Expat Support</span>
+                    </h3>
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light">
+                        <span class="lang-cz">Užitečné rady, sdílení zkušeností s životem v SAE a přátelská pomoc nováčkům.</span>
+                        <span class="lang-en">Useful guidance, sharing life experience in the UAE, and welcoming newcomers.</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events Section -->
+<section id="events" class="py-24 md:py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="inline-flex items-center gap-3 mb-4">
+                <div class="h-px w-8 bg-[#d7141a]"></div>
+                <span class="font-michroma text-[#d7141a] tracking-[0.25em] uppercase text-[10px] font-bold">
+                    <span class="lang-cz">Kalendář akcí</span>
+                    <span class="lang-en">Events Calendar</span>
+                </span>
+                <div class="h-px w-8 bg-[#d7141a]"></div>
+            </div>
+            
+            <h2 class="font-michroma text-2xl md:text-4xl text-[#11457e] mb-4">
+                <span class="lang-cz">Nadcházející události</span>
+                <span class="lang-en">Upcoming Events</span>
+            </h2>
+            <p class="text-[#11457e]/70 text-sm font-light">
+                <span class="lang-cz">Připojte se k našim plánovaným akcím. Těšíme se na vás!</span>
+                <span class="lang-en">Join us for our upcoming activities. We look forward to seeing you!</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Event Card 1 -->
+            <div class="bg-[#faf8f5] rounded-3xl overflow-hidden border border-[#11457e]/10 flex flex-col premium-card">
+                <div class="p-8 flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="bg-[#11457e]/10 text-[#11457e] font-michroma text-[9px] px-3 py-1.5 rounded-full uppercase font-bold">
+                            <span class="lang-cz">Networking</span>
+                            <span class="lang-en">Networking</span>
+                        </span>
+                        <span class="text-xs text-[#11457e]/60 font-medium">18:30 GST</span>
+                    </div>
+                    
+                    <div class="font-michroma text-2xl text-[#d7141a] mb-2 font-bold">28. ŘÍJNA</div>
+                    
+                    <h3 class="font-michroma text-base text-[#11457e] mb-4 font-bold">
+                        <span class="lang-cz">Český národní večer & Networking</span>
+                        <span class="lang-en">Czech National Evening & Networking</span>
+                    </h3>
+                    
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light mb-6">
+                        <span class="lang-cz">Slavnostní setkání k příležitosti Státního svátku v prestižním prostoru v Abú Dhabí.</span>
+                        <span class="lang-en">A festive gathering celebrating Czech National Day in a prestigious Abu Dhabi venue.</span>
+                    </p>
+                </div>
+                
+                <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
+                    <span class="text-xs text-[#11457e]/70 font-medium">Abu Dhabi, SAE</span>
+                    <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                        <span class="lang-cz">Registrovat →</span>
+                        <span class="lang-en">Register →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="bg-[#faf8f5] rounded-3xl overflow-hidden border border-[#11457e]/10 flex flex-col premium-card">
+                <div class="p-8 flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="bg-[#d7141a]/10 text-[#d7141a] font-michroma text-[9px] px-3 py-1.5 rounded-full uppercase font-bold">
+                            <span class="lang-cz">Kultura & Rodina</span>
+                            <span class="lang-en">Culture & Family</span>
+                        </span>
+                        <span class="text-xs text-[#11457e]/60 font-medium">16:00 GST</span>
+                    </div>
+                    
+                    <div class="font-michroma text-2xl text-[#d7141a] mb-2 font-bold">05. PROSINCE</div>
+                    
+                    <h3 class="font-michroma text-base text-[#11457e] mb-4 font-bold">
+                        <span class="lang-cz">Tradiční Mikulášská pro děti</span>
+                        <span class="lang-en">Traditional St. Nicholas Party</span>
+                    </h3>
+                    
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light mb-6">
+                        <span class="lang-cz">Kouzelný odpolední program pro nejmenší s Mikulášem, čertem a andělem.</span>
+                        <span class="lang-en">A magical afternoon program for kids with St. Nicholas, angel, and treats.</span>
+                    </p>
+                </div>
+                
+                <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
+                    <span class="text-xs text-[#11457e]/70 font-medium">Abu Dhabi Park</span>
+                    <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                        <span class="lang-cz">Registrovat →</span>
+                        <span class="lang-en">Register →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div class="bg-[#faf8f5] rounded-3xl overflow-hidden border border-[#11457e]/10 flex flex-col premium-card">
+                <div class="p-8 flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="bg-[#a88760]/15 text-[#a88760] font-michroma text-[9px] px-3 py-1.5 rounded-full uppercase font-bold">
+                            <span class="lang-cz">Outdoor & Safari</span>
+                            <span class="lang-en">Outdoor & Safari</span>
+                        </span>
+                        <span class="text-xs text-[#11457e]/60 font-medium">14:00 GST</span>
+                    </div>
+                    
+                    <div class="font-michroma text-2xl text-[#d7141a] mb-2 font-bold">20. LEDNA</div>
+                    
+                    <h3 class="font-michroma text-base text-[#11457e] mb-4 font-bold">
+                        <span class="lang-cz">České Písečné Safari v poušti</span>
+                        <span class="lang-en">Czech Desert Safari Excursion</span>
+                    </h3>
+                    
+                    <p class="text-xs text-[#11457e]/70 leading-relaxed font-light mb-6">
+                        <span class="lang-cz">Společný víkendový výlet do dun s grillem, táborákem a pozorováním hvězd.</span>
+                        <span class="lang-en">Joint weekend desert outing into the dunes with BBQ, campfire, and stargazing.</span>
+                    </p>
+                </div>
+                
+                <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
+                    <span class="text-xs text-[#11457e]/70 font-medium">Al Khatim Desert</span>
+                    <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                        <span class="lang-cz">Registrovat →</span>
+                        <span class="lang-en">Register →</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Registration Section -->
+<section id="register" class="py-24 md:py-32 bg-[#0a2c52] text-white relative">
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        
+        <div class="text-center mb-12">
+            <span class="font-michroma text-[#dcb991] tracking-[0.25em] uppercase text-[10px] font-bold block mb-3">
+                <span class="lang-cz">Přidejte se k nám</span>
+                <span class="lang-en">Join Our Community</span>
+            </span>
+            <h2 class="font-michroma text-2xl md:text-4xl text-white mb-4">
+                <span class="lang-cz">Registrační formulář</span>
+                <span class="lang-en">Membership Form</span>
+            </h2>
+            <p class="text-white/70 text-sm font-light max-w-xl mx-auto">
+                <span class="lang-cz">Vyplňte údaje níže a staňte se součástí oficiální české komunity v Abú Dhabí.</span>
+                <span class="lang-en">Fill out the details below to become part of the official Czech community in Abu Dhabi.</span>
+            </p>
+        </div>
+
+        <form id="membership-form" onsubmit="handleFormSubmit(event)" class="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block font-michroma text-[10px] uppercase text-white/80 mb-2">
+                        <span class="lang-cz">Jméno a Příjmení *</span>
+                        <span class="lang-en">Full Name *</span>
+                    </label>
+                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Jan Novák">
+                </div>
+
+                <div>
+                    <label class="block font-michroma text-[10px] uppercase text-white/80 mb-2">
+                        <span class="lang-cz">E-mailová adresa *</span>
+                        <span class="lang-en">Email Address *</span>
+                    </label>
+                    <input type="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="jan.novak@example.cz">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block font-michroma text-[10px] uppercase text-white/80 mb-2">
+                        <span class="lang-cz">Telefon *</span>
+                        <span class="lang-en">Phone Number *</span>
+                    </label>
+                    <input type="tel" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="+971 50 123 4567">
+                </div>
+
+                <div>
+                    <label class="block font-michroma text-[10px] uppercase text-white/80 mb-2">
+                        <span class="lang-cz">Od kdy jste v SAE? *</span>
+                        <span class="lang-en">Since when are you in UAE? *</span>
+                    </label>
+                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="např. 2015">
+                </div>
+            </div>
+
+            <div>
+                <label class="block font-michroma text-[10px] uppercase text-white/80 mb-2">
+                    <span class="lang-cz">Co od spolku očekáváte? *</span>
+                    <span class="lang-en">What do you expect from the club? *</span>
+                </label>
+                <textarea rows="4" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Hledám nová přátelství, kulturní akce, networking..."></textarea>
+            </div>
+
+            <div class="flex items-start gap-3 mt-2">
+                <input type="checkbox" id="consent" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-[#dcb991] focus:ring-[#dcb991] focus:ring-offset-[#0a2c52] transition-colors cursor-pointer">
+                <label for="consent" class="text-xs text-white/70 font-light leading-relaxed cursor-pointer select-none">
+                    <span class="lang-cz">Souhlasím se sdílením informací pro potřeby spolku Czech Club Abu Dhabi. *</span>
+                    <span class="lang-en">I agree to share my information for the purposes of the Czech Club Abu Dhabi. *</span>
+                </label>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] font-michroma uppercase font-bold text-[11px] py-4 rounded-xl tracking-widest hover:opacity-95 transition-opacity shadow-lg mt-4">
+                <span class="lang-cz">Odeslat registraci</span>
+                <span class="lang-en">Submit Registration</span>
+            </button>
+
+        </form>
+    </div>
+</section>
+
+<!-- Custom Modal Notice (Replaces alert) -->
+<div id="modal-notice" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-[#11457e]/10">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h3 class="font-michroma text-lg text-[#11457e] mb-2 font-bold">
+            <span class="lang-cz">Děkujeme za registraci!</span>
+            <span class="lang-en">Thank you for registering!</span>
+        </h3>
+        <p class="text-xs text-[#11457e]/70 leading-relaxed mb-6 font-light">
+            <span class="lang-cz">Vaše přihláška byla úspěšně přijata. Brzy vás budeme kontaktovat s podrobnostmi.</span>
+            <span class="lang-en">Your application has been received. We will contact you shortly with further details.</span>
+        </p>
+        <button onclick="closeModal()" class="bg-[#11457e] text-white font-michroma text-[10px] uppercase font-bold px-6 py-3 rounded-full w-full hover:bg-[#d7141a] transition-colors">
+            <span class="lang-cz">Zavřít</span>
+            <span class="lang-en">Close</span>
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#071f3a] text-white py-16 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <div class="md:col-span-2">
+            <!-- Čtvercové logo v patičce -->
+            <div class="w-16 h-16 bg-white rounded-2xl p-2 mb-6 border border-white/20">
+                <img src="logo2.png" alt="Czech Club" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffffff/11457e?text=CC';">
+            </div>
+            <h3 class="font-michroma text-lg font-bold mb-3">Czech Club Abu Dhabi</h3>
+            <p class="text-xs text-white/60 leading-relaxed max-w-sm font-light">
+                <span class="lang-cz">Oficiální nezisková platforma pro podporu české komunity, uchovávání tradic a rozvoj českých vztahů v SAE.</span>
+                <span class="lang-en">Official non-profit community platform supporting Czech expats, preserving traditions, and fostering connections in the UAE.</span>
+            </p>
+        </div>
+
+        <div>
+            <h4 class="font-michroma text-xs font-bold text-[#dcb991] uppercase tracking-wider mb-4">
+                <span class="lang-cz">Rychlé odkazy</span>
+                <span class="lang-en">Quick Links</span>
+            </h4>
+            <ul class="space-y-2 text-xs text-white/70 font-light">
+                <li><a href="#about" class="hover:text-white transition-colors">O nás / About</a></li>
+                <li><a href="#events" class="hover:text-white transition-colors">Kalendář akcí / Events</a></li>
+                <li><a href="#register" class="hover:text-white transition-colors">Členství / Join</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="font-michroma text-xs font-bold text-[#dcb991] uppercase tracking-wider mb-4">
+                <span class="lang-cz">Kontakt</span>
+                <span class="lang-en">Contact</span>
+            </h4>
+            <p class="text-xs text-white/70 font-light mb-2">Abu Dhabi, United Arab Emirates</p>
+            <p class="text-xs text-white/70 font-light">info@czechclub.ae</p>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-center text-[10px] text-white/40 font-michroma uppercase">
+        © 2026 Czech Club Abu Dhabi. All rights reserved.
+    </div>
+</footer>
+
+<script>
+    /* Language Switcher Function */
+    function toggleLanguage() {
+        const body = document.body;
+        const czBtn = document.getElementById('lang-cz-btn');
+        const enBtn = document.getElementById('lang-en-btn');
+
+        if (body.classList.contains('lang-cz')) {
+            body.classList.remove('lang-cz');
+            body.classList.add('lang-en');
+            if (czBtn && enBtn) {
+                czBtn.className = 'px-3 py-1.5 rounded-full text-[#11457e] hover:text-[#d7141a] transition-all';
+                enBtn.className = 'px-3 py-1.5 rounded-full bg-[#11457e] text-white transition-all';
+            }
+        } else {
+            body.classList.remove('lang-en');
+            body.classList.add('lang-cz');
+            if (czBtn && enBtn) {
+                czBtn.className = 'px-3 py-1.5 rounded-full bg-[#11457e] text-white transition-all';
+                enBtn.className = 'px-3 py-1.5 rounded-full text-[#11457e] hover:text-[#d7141a] transition-all';
+            }
+        }
+    }
+
+    /* Mobile Menu Toggle */
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+        if (menu.classList.contains('opacity-0')) {
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            menu.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+            menu.classList.remove('opacity-100', 'pointer-events-auto');
+            menu.classList.add('opacity-0', 'pointer-events-none');
+        }
+    }
+
+    /* Form Handler & Modal */
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const modal = document.getElementById('modal-notice');
+        if (modal) {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+        }
+        e.target.reset();
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('modal-notice');
+        if (modal) {
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    }
+</script>
+
+</body>
+</html>
