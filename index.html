@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#11457e">
+    
+    <!-- Zamknutí světlého režimu pro mobilní telefony (Dark mode fix) -->
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    
     <title>Czech Club Abu Dhabi | Oficiální krajanský spolek v SAE</title>
     <meta name="description" content="Oficiální krajanský spolek v Abú Dhabí a SAE. Přidejte se k naší komunitě, zaregistrujte se a zúčastněte se našich nadcházejících událostí.">
     
@@ -16,6 +21,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
     
     <style>
+        /* Zamknutí světlého režimu přes CSS */
+        :root, html, body {
+            color-scheme: light !important;
+            supported-color-schemes: light !important;
+        }
+
         /* Base typography setup */
         body { 
             font-family: 'Inter', sans-serif; 
