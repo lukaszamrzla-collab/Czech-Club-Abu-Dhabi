@@ -407,10 +407,10 @@
                 
                 <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
                     <span class="text-xs text-[#11457e]/70 font-medium">Craft by Side Hustle, Abu Dhabi</span>
-                    <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                    <button onclick="openEventModal('Oslava svátku & Networking (28. října)')" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors cursor-pointer bg-transparent border-0 p-0">
                         <span class="lang-cz">Registrovat →</span>
                         <span class="lang-en">Register →</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -439,7 +439,11 @@
                 </div>
                 
                 <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
-                    <span class="text-xs text-[#11457e]/70 font-medium">Více informací již brzy</span>
+                    <span class="text-xs text-[#11457e]/70 font-medium">Abu Dhabi</span>
+                    <button onclick="openEventModal('Tradiční oslavy Mikuláše pro děti (5. prosince)')" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors cursor-pointer bg-transparent border-0 p-0">
+                        <span class="lang-cz">Registrovat →</span>
+                        <span class="lang-en">Register →</span>
+                    </button>
                 </div>
             </div>
 
@@ -467,10 +471,10 @@
                 </div>
                 <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
                     <span class="text-xs text-[#11457e]/70 font-medium">Těšíme se na nápady</span>
-                    <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                    <button onclick="openEventModal('Návrh vlastní akce / Námět od člena')" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors cursor-pointer bg-transparent border-0 p-0">
                         <span class="lang-cz">Napsat nám →</span>
                         <span class="lang-en">Write us →</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -478,7 +482,7 @@
     </div>
 </section>
 
-<!-- Registration Section -->
+<!-- Registration Section (Club Membership) -->
 <section id="register" class="py-24 md:py-32 bg-[#0a2c52] text-white relative">
     <div class="max-w-4xl mx-auto px-6 relative z-10">
         
@@ -560,8 +564,50 @@
     </div>
 </section>
 
-<!-- Custom Modal Notice (Replaces alert) -->
-<div id="modal-notice" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+<!-- Event Registration Modal -->
+<div id="event-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-[#0a2c52] text-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-white/10 relative">
+        <button onclick="closeEventModal()" class="absolute top-6 right-6 text-white/70 hover:text-white p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        
+        <div class="mb-6 text-center">
+            <span class="font-michroma text-[#dcb991] tracking-[0.2em] uppercase text-[9px] font-bold block mb-1">Registrace na akci</span>
+            <h3 id="modal-event-title" class="font-michroma text-base text-white font-bold">Název akce</h3>
+        </div>
+
+        <form id="event-registration-form" action="https://formspree.io/f/xvkzqvgd" method="POST" onsubmit="handleEventFormSubmit(event)" class="space-y-4">
+            <input type="hidden" id="hidden-event-name" name="eventName" value="">
+            
+            <div>
+                <label class="block font-michroma text-[9px] uppercase text-white/80 mb-1.5">Jméno a Příjmení *</label>
+                <input type="text" name="fullName" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] text-sm" placeholder="Jan Novák">
+            </div>
+
+            <div>
+                <label class="block font-michroma text-[9px] uppercase text-white/80 mb-1.5">E-mailová adresa *</label>
+                <input type="email" name="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] text-sm" placeholder="jan.novak@example.cz">
+            </div>
+
+            <div>
+                <label class="block font-michroma text-[9px] uppercase text-white/80 mb-1.5">Mobil *</label>
+                <input type="tel" name="phone" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] text-sm" placeholder="+971 50 123 4567">
+            </div>
+
+            <div>
+                <label class="block font-michroma text-[9px] uppercase text-white/80 mb-1.5">Počet osob *</label>
+                <input type="number" name="numberOfPeople" min="1" value="1" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] text-sm">
+            </div>
+
+            <button type="submit" id="event-submit-btn" class="w-full bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] font-michroma uppercase font-bold text-[10px] py-3.5 rounded-xl tracking-widest hover:opacity-95 transition-opacity shadow-lg mt-2">
+                Odeslat registraci
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Custom Modal Notice (Success popup) -->
+<div id="modal-notice" class="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-[#11457e]/10">
         <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -666,7 +712,7 @@
         }
     }
 
-    /* Form Handler & Modal (s integrací Formspree) */
+    /* Club Membership Form Handler & Modal */
     async function handleFormSubmit(e) {
         e.preventDefault();
         const form = e.target;
@@ -707,6 +753,75 @@
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 submitBtn.innerHTML = originalBtnText;
+            }
+        }
+    }
+
+    /* Event Modal Functions */
+    function openEventModal(eventName) {
+        const modal = document.getElementById('event-modal');
+        const titleEl = document.getElementById('modal-event-title');
+        const hiddenInput = document.getElementById('hidden-event-name');
+        
+        if (titleEl) titleEl.textContent = eventName;
+        if (hiddenInput) hiddenInput.value = eventName;
+        
+        if (modal) {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+        }
+    }
+
+    function closeEventModal() {
+        const modal = document.getElementById('event-modal');
+        if (modal) {
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    }
+
+    /* Event Form Handler (Formspree) */
+    async function handleEventFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const submitBtn = document.getElementById('event-submit-btn');
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            submitBtn.innerHTML = 'Odesílám...';
+        }
+
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                closeEventModal();
+                const successModal = document.getElementById('modal-notice');
+                if (successModal) {
+                    successModal.classList.remove('opacity-0', 'pointer-events-none');
+                    successModal.classList.add('opacity-100', 'pointer-events-auto');
+                }
+                form.reset();
+            } else {
+                alert('Při odesílání registrace došlo k chybě. Zkuste to prosím znovu.');
+            }
+        } catch (error) {
+            alert('Chyba připojení. Zkontrolujte prosím internetové připojení.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.innerHTML = originalText;
             }
         }
     }
