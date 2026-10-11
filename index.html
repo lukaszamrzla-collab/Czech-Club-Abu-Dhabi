@@ -125,12 +125,11 @@
         <div class="flex justify-between items-center h-24 gap-4">
             
             <!-- Obdélníkové Logo -->
-<div class="flex shrink-0 items-center">
-  <a href="#" class="flex items-center focus:outline-none">
-    <!-- Increased size using explicit width (w-64 to w-80) -->
-    <img src="logo.png" alt="Czech Club Abu Dhabi" class="w-64 md:w-80 h-auto object-contain transition-opacity hover:opacity-90">
-  </a>
-</div>
+            <div class="flex shrink-0 items-center">
+              <a href="#" class="flex items-center focus:outline-none">
+                <img src="logo.png" alt="Czech Club Abu Dhabi" class="w-64 md:w-80 h-auto object-contain transition-opacity hover:opacity-90">
+              </a>
+            </div>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 font-michroma text-[10px] tracking-[0.2em] uppercase font-semibold">
@@ -441,7 +440,6 @@
                 
                 <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
                     <span class="text-xs text-[#11457e]/70 font-medium">Více informací již brzy</span>
-                    </a>
                 </div>
             </div>
 
@@ -456,7 +454,7 @@
                         <span class="text-xs text-[#11457e]/60 font-medium">14:00 GST</span>
                     </div>
                     
-                    <div class="font-michroma text-2xl text-[#d7141a] mb-2 font-bold">Již bry další akce</div>
+                    <div class="font-michroma text-2xl text-[#d7141a] mb-2 font-bold">Již brzy další akce</div>
                     
                     <h3 class="font-michroma text-base text-[#11457e] mb-4 font-bold">
                         <span class="lang-cz">Nebojte se sami navrhnout, co máme uspořádat příště.</span>
@@ -465,7 +463,13 @@
                     
                     <p class="text-xs text-[#11457e]/70 leading-relaxed font-light mb-6">
                         <span class="lang-cz">Sportovní den, camping v poušti, oslava svátku i neformální networking. Akce se budou vytvářet na základě zájmu a nápadů každého z Vás.</span>
+                    </p>
+                </div>
+                <div class="p-8 pt-0 border-t border-[#11457e]/10 mt-auto flex items-center justify-between">
+                    <span class="text-xs text-[#11457e]/70 font-medium">Těšíme se na nápady</span>
                     <a href="#register" class="text-xs font-michroma text-[#11457e] font-bold hover:text-[#d7141a] transition-colors">
+                        <span class="lang-cz">Napsat nám →</span>
+                        <span class="lang-en">Write us →</span>
                     </a>
                 </div>
             </div>
@@ -493,7 +497,7 @@
             </p>
         </div>
 
-        <form id="membership-form" onsubmit="handleFormSubmit(event)" class="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 space-y-6">
+        <form id="membership-form" action="https://formspree.io/f/maeqblny" method="POST" onsubmit="handleFormSubmit(event)" class="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 space-y-6">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -501,7 +505,7 @@
                         <span class="lang-cz">Jméno a Příjmení *</span>
                         <span class="lang-en">Full Name *</span>
                     </label>
-                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Jan Novák">
+                    <input type="text" name="fullName" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Jan Novák">
                 </div>
 
                 <div>
@@ -509,7 +513,7 @@
                         <span class="lang-cz">E-mailová adresa *</span>
                         <span class="lang-en">Email Address *</span>
                     </label>
-                    <input type="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="jan.novak@example.cz">
+                    <input type="email" name="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="jan.novak@example.cz">
                 </div>
             </div>
 
@@ -519,7 +523,7 @@
                         <span class="lang-cz">Telefon *</span>
                         <span class="lang-en">Phone Number *</span>
                     </label>
-                    <input type="tel" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="+971 50 123 4567">
+                    <input type="tel" name="phone" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="+971 50 123 4567">
                 </div>
 
                 <div>
@@ -527,7 +531,7 @@
                         <span class="lang-cz">Od kdy jste v SAE? *</span>
                         <span class="lang-en">Since when are you in UAE? *</span>
                     </label>
-                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="např. 2015">
+                    <input type="text" name="inUaeSince" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="např. 2015">
                 </div>
             </div>
 
@@ -536,18 +540,18 @@
                     <span class="lang-cz">Co od spolku očekáváte? *</span>
                     <span class="lang-en">What do you expect from the club? *</span>
                 </label>
-                <textarea rows="4" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Hledám nová přátelství, kulturní akce, networking..."></textarea>
+                <textarea name="expectations" rows="4" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-[#dcb991] transition-colors text-sm" placeholder="Hledám nová přátelství, kulturní akce, networking..."></textarea>
             </div>
 
             <div class="flex items-start gap-3 mt-2">
-                <input type="checkbox" id="consent" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-[#dcb991] focus:ring-[#dcb991] focus:ring-offset-[#0a2c52] transition-colors cursor-pointer">
+                <input type="checkbox" name="consent" id="consent" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-[#dcb991] focus:ring-[#dcb991] focus:ring-offset-[#0a2c52] transition-colors cursor-pointer">
                 <label for="consent" class="text-xs text-white/70 font-light leading-relaxed cursor-pointer select-none">
                     <span class="lang-cz">Souhlasím se sdílením informací pro potřeby spolku Czech Club Abu Dhabi. *</span>
                     <span class="lang-en">I agree to share my information for the purposes of the Czech Club Abu Dhabi. *</span>
                 </label>
             </div>
 
-            <button type="submit" class="w-full bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] font-michroma uppercase font-bold text-[11px] py-4 rounded-xl tracking-widest hover:opacity-95 transition-opacity shadow-lg mt-4">
+            <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] font-michroma uppercase font-bold text-[11px] py-4 rounded-xl tracking-widest hover:opacity-95 transition-opacity shadow-lg mt-4">
                 <span class="lang-cz">Odeslat registraci</span>
                 <span class="lang-en">Submit Registration</span>
             </button>
@@ -586,6 +590,7 @@
       <div class="md:col-span-5 space-y-4">
         <a href="#" class="inline-block focus:outline-none">
           <img src="logo2.png" alt="Czech Club Abu Dhabi" class="w-48 md:w-56 h-auto object-contain">
+        </a>
       </div>
 
       <!-- Rychlé odkazy -->
@@ -621,7 +626,9 @@
         &copy; 2026 CZECH CLUB ABU DHABI. ALL RIGHTS RESERVED.
       </p>
     </div>
+  </div>
 </footer>
+
 <script>
     /* Language Switcher Function */
     function toggleLanguage() {
@@ -659,15 +666,49 @@
         }
     }
 
-    /* Form Handler & Modal */
-    function handleFormSubmit(e) {
+    /* Form Handler & Modal (s integrací Formspree) */
+    async function handleFormSubmit(e) {
         e.preventDefault();
-        const modal = document.getElementById('modal-notice');
-        if (modal) {
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.classList.add('opacity-100', 'pointer-events-auto');
+        const form = e.target;
+        const submitBtn = document.getElementById('submit-btn');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            submitBtn.innerHTML = 'Odesílám... / Sending...';
         }
-        e.target.reset();
+
+        const data = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const modal = document.getElementById('modal-notice');
+                if (modal) {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modal.classList.add('opacity-100', 'pointer-events-auto');
+                }
+                form.reset();
+            } else {
+                alert('Při odesílání došlo k chybě. Zkontrolujte údaje a zkuste to znovu.');
+            }
+        } catch (error) {
+            alert('Chyba připojení. Zkontrolujte připojení k internetu.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
     }
 
     function closeModal() {
