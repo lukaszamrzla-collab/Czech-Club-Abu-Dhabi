@@ -647,6 +647,35 @@
     </div>
 </div>
 
+<!-- Pop-up leták / Pozvánka na akci (pozvanka.png) -->
+<div id="promo-popup" class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl border border-white/20 transform scale-95 transition-transform duration-300" id="promo-popup-card">
+        
+        <!-- Tlačítko Zavřít (Křížek nahoře vpravo) -->
+        <button onclick="closePromoPopup()" class="absolute top-3 right-3 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 backdrop-blur-md transition-colors cursor-pointer" aria-label="Zavřít">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <!-- Náhled obrázku pozvánky -->
+        <div class="relative w-full max-h-[80vh] overflow-y-auto">
+            <img src="pozvanka.png" alt="Pozvánka na akci Czech Club Abu Dhabi" class="w-full h-auto object-contain block">
+        </div>
+
+        <!-- Tlačítka pod obrázkem -->
+        <div class="p-4 bg-[#0a2c52] text-center border-t border-white/10 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <button onclick="closePromoPopup(); openEventModal('Oslava svátku & Networking (28. října)');" class="w-full sm:w-auto bg-gradient-to-r from-[#dcb991] to-[#a88760] text-[#0a2c52] font-michroma uppercase font-bold text-[10px] px-6 py-3 rounded-full tracking-widest hover:opacity-95 transition-opacity shadow-md">
+                <span class="lang-cz">Registrovat se na akci</span>
+                <span class="lang-en">Register for Event</span>
+            </button>
+            <button onclick="closePromoPopup()" class="w-full sm:w-auto text-white/70 hover:text-white font-michroma text-[10px] uppercase font-semibold py-2 px-4 transition-colors">
+                <span class="lang-cz">Zavřít</span>
+                <span class="lang-en">Close</span>
+            </button>
+        </div>
+
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer class="bg-white relative pt-12 pb-8 border-t border-gray-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -853,6 +882,42 @@
             modal.classList.add('opacity-0', 'pointer-events-none');
         }
     }
+
+    /* Pop-up Pozvánka Functions */
+    function openPromoPopup() {
+        const popup = document.getElementById('promo-popup');
+        const card = document.getElementById('promo-popup-card');
+        if (popup && card) {
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            popup.classList.add('opacity-100', 'pointer-events-auto');
+            card.classList.remove('scale-95');
+            card.classList.add('scale-100');
+        }
+    }
+
+    function closePromoPopup() {
+        const popup = document.getElementById('promo-popup');
+        const card = document.getElementById('promo-popup-card');
+        if (popup && card) {
+            popup.classList.remove('opacity-100', 'pointer-events-auto');
+            popup.classList.add('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+        }
+    }
+
+    // Automatické zobrazení pop-upu po načtení stránky (s mírnou prodlevou 500 ms)
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(openPromoPopup, 500);
+    });
+
+    // Zavření kliknutím na tmavé pozadí mimo kartu letáku
+    document.addEventListener('click', (e) => {
+        const popup = document.getElementById('promo-popup');
+        if (e.target === popup) {
+            closePromoPopup();
+        }
+    });
 </script>
 
 </body>
